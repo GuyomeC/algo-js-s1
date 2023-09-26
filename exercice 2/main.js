@@ -5,10 +5,10 @@ var c = 3
 switch(a) {
     case b:
         console.log("égal à b")
-        break;
+        break
     case c:
         console.log("égal à c")
-        break;
+        break
     default:
         console.log("égal à rien")
 }
