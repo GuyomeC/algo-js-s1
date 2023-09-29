@@ -33,16 +33,18 @@ class pokemon {
         this.luck = luck
     }
     attackpokemon(enemi){
-        enemi.hp = enemi.hp - this.attack + enemi.defense
+        enemi.hp = enemi.hp - this.attack - enemi.defense
     }
 
     isLucky(attaquant,enemi) {
         let nbr = Math.random()
         if (attaquant.luck >= nbr ) {
+            console.log(attaquant.name + " va attaquer")
             attaquant.attackpokemon(enemi)
             console.log(attaquant.name + " attaque")
             console.log(enemi.name + " a pris " + tadmorv.attack + " dégats et il se retrouve à "+ granipot.hp + " hp")
         } else {
+            console.log(attaquant.name + " va attaquer")
             console.log(attaquant.name + " a raté son enemi")
             console.log(enemi.name + " a pris 0 dégats")
         }
@@ -57,13 +59,11 @@ console.log(granipot)
 
 
 while (tadmorv.hp > 0 || granipot.hp > 0) {
-    console.log("tadmorv va attaquer")
     tadmorv.isLucky(tadmorv, granipot)
     if (granipot.hp <= 0) {
         console.log("granipot est mort")
         break
     } else {
-        console.log("granipot va attaquer")
         granipot.isLucky(granipot, tadmorv)
         if (tadmorv.hp <= 0){
             console.log("tadmorv est mort")
