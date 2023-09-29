@@ -41,12 +41,10 @@ class pokemon {
         if (attaquant.luck >= nbr ) {
             console.log(attaquant.name + " va attaquer")
             attaquant.attackpokemon(enemi)
-            console.log(attaquant.name + " attaque")
-            console.log(enemi.name + " a pris " + tadmorv.attack + " dégats et il se retrouve à "+ granipot.hp + " hp")
+            console.log(attaquant.name + " attaque et " + enemi.name + " a pris " + attaquant.attack + " dégats et il se retrouve à "+ enemi.hp + " hp")
         } else {
             console.log(attaquant.name + " va attaquer")
-            console.log(attaquant.name + " a raté son enemi")
-            console.log(enemi.name + " a pris 0 dégats")
+            console.log(attaquant.name + " a raté son enemi donc " + enemi.name + " a pris 0 dégat")
         }
     }
 
@@ -67,6 +65,26 @@ while (tadmorv.hp > 0 || granipot.hp > 0) {
         granipot.isLucky(granipot, tadmorv)
         if (tadmorv.hp <= 0){
             console.log("tadmorv est mort")
+            break
+        } 
+    }
+    
+}
+
+let aquali = new pokemon("aquali", 7, 6, 211, 0.6)
+console.log(aquali)
+let mackogneur = new pokemon("mackogneur", 12, 7, 168, 0.9)
+console.log(mackogneur)
+
+while (aquali.hp > 0 || mackogneur.hp > 0) {
+    aquali.isLucky(aquali, mackogneur)
+    if (mackogneur.hp <= 0) {
+        console.log("mackogneur est mort")
+        break
+    } else {
+        mackogneur.isLucky(mackogneur, aquali)
+        if (aquali.hp <= 0){
+            console.log("aquali est mort")
             break
         } 
     }
